@@ -1,0 +1,1 @@
+This is the core for the MeanBoss project.
