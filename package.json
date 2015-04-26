@@ -1,0 +1,8 @@
+{
+  "name": "meanbossio",
+  "version": "0.0.1",
+  "description": "The core of MeanBoss",
+  "main": "index.js",
+  "author": "Cody B. Daig",
+  "license": "MIT"
+}
