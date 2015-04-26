@@ -8,4 +8,4 @@ Component.prototype.register = function() {
 	console.log("Registering this thing");
 };
 
-module.exports = new Component();
+module.exports = Component;

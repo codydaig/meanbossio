@@ -58,15 +58,31 @@ MeanBossIO.prototype.LoadComponents = function() {
 		if(err) throw err;
 
 		componentDirs.forEach(function(componentDir){
-			console.log(componentDir);
-			//MeanBossIO.VerifyComponent(componentDir);
 			VerifyComponent(componentDir);
 		});
 	});
 };
 
 function VerifyComponent(componentDir) {
-	console.log(componentDir);
+	var pkg = null;
+	console.log("verifying " + componentDir);
+	try {
+		pkg = require(componentDir + "package.json");
+		console.log("Found the Package.json file for " + componentDir);
+	} catch(e) {
+		console.log("The Component in " + componentDir + " is missing the package.json file.");
+		return;
+	}
+	try {
+		console.log("-----");
+		console.log("Attempting to load the component");
+		require(componentDir + pkg.main);
+	} catch(e) {
+		console.log("Could not load the component.");
+		return;
+	}
+
+	// TODO: use semver to check versioning requirements
 }
 
 // Define Variables
@@ -77,6 +93,6 @@ MeanBossIO.prototype.config = {};
 MeanBossIO.prototype.ServerEngine = null;
 
 //  variable to hold Components Instance
-//MeanBossIO.prototype.Components = new (require('./core_components/Components'))();
+MeanBossIO.prototype.Component = (require('./core_components/Component'));
 
 module.exports = exports = new MeanBossIO();
