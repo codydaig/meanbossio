@@ -4,5 +4,8 @@
   "description": "The core of MeanBoss",
   "main": "index.js",
   "author": "Cody B. Daig",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^3.7.0"
+  }
 }
